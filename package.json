@@ -5,6 +5,9 @@
   "author": "Jakub Biesiada",
   "license": "MIT",
   "main": "index.js",
+  "scripts": {
+    "prettier": "prettier --write 'bin/**/*.js'"
+  },
   "repository": "https://github.com/JB1905/meet-upper.git",
   "engines": {
     "node": ">=8"
@@ -14,5 +17,21 @@
     "chalk": "^2.4.2",
     "commander": "^3.0.0",
     "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.3",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "bin/**/*.js": [
+      "npm run prettier",
+      "git add"
+    ]
   }
 }
