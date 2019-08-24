@@ -22,8 +22,16 @@ program
 
     const meetups = await res.json();
 
+    if (meetups.errors && meetups.errors[0].code === 'group_error') {
+      console.log(meetups.errors[0].message);
+
+      process.exit(1);
+    }
+
     if (!meetups.length) {
       console.log('Not found upcoming events 😞');
+
+      process.exit(1);
     }
 
     meetups.map(meetup => {
