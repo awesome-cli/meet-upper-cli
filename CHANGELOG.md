@@ -1,5 +1,9 @@
 # meetUPPER Changelog
 
+## 1.0.1 (2019-08-24)
+#### Bug Fix
+- fixed error with incorrect name request
+
 ## 1.0.0 (2019-08-23)
-#### New New Feature
+#### New Feature
 - added `MEET` command
