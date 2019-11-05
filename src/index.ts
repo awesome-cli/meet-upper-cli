@@ -23,7 +23,7 @@ program
 
     const meetups = await res.json();
 
-    if (meetups.errors && meetups.errors[0].code === 'group_error') {
+    if (meetups?.errors?.[0]?.code === 'group_error') {
       console.log(meetups.errors[0].message);
 
       process.exit(1);
