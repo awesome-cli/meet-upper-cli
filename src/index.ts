@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-const path = require('path');
-const program = require('commander');
-const chalk = require('chalk');
-const fetch = require('node-fetch');
+import path from 'path';
+import program from 'commander';
+import chalk from 'chalk';
+import figlet from 'figlet';
+import fetch from 'node-fetch';
 
 const pkg = require(path.join(__dirname, '../package.json'));
 
@@ -17,7 +18,7 @@ program
     '-w --went',
     'Show meetups you went to in reverse chronological order'
   )
-  .action(async group => {
+  .action(async (group: string) => {
     const res = await fetch(`https://api.meetup.com/${group}/events`);
 
     const meetups = await res.json();
@@ -34,12 +35,12 @@ program
       process.exit(1);
     }
 
-    meetups.map(meetup => {
+    meetups.map((meetup: { [key: string]: string }) => {
       const { name, link, time } = meetup;
 
       const date = new Date(time);
 
-      const convertTime = time => (time < 10 ? `0${time}` : time);
+      const convertTime = (time: number) => (time < 10 ? `0${time}` : time);
 
       console.log(
         `${chalk.bgBlue(name)}\n` +
@@ -59,6 +60,12 @@ program.on('command:*', () => {
   console.error(chalk.red('Invalid command'));
 
   process.exit(1);
+});
+
+program.on('--help', () => {
+  console.log(
+    chalk.red(figlet.textSync('meetUPPER', { horizontalLayout: 'full' }))
+  );
 });
 
 program.parse(process.argv);
