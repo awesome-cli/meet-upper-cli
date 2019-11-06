@@ -1,6 +1,6 @@
 # meetUPPER Changelog
 
-## 1.1.0 (2019-10-06)
+## 1.1.0 (2019-11-06)
 #### Repository Changes
 - added `TypeScript`
 
