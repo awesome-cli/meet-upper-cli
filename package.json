@@ -1,12 +1,13 @@
 {
   "name": "meet-upper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Search events on Meetup from CLI",
   "author": "Jakub Biesiada",
   "license": "MIT",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
-    "prettier": "prettier --write 'bin/**/*.js'"
+    "build": "tsc -p .",
+    "prettier": "prettier --write 'src/**/*.ts'"
   },
   "repository": "https://github.com/JB1905/meet-upper.git",
   "engines": {
@@ -15,13 +16,18 @@
   "bin": "bin/index.js",
   "dependencies": {
     "chalk": "^2.4.2",
-    "commander": "^3.0.2",
+    "commander": "^4.0.0",
+    "figlet": "^1.2.4",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "@types/figlet": "^1.2.0",
+    "@types/node": "^12.12.6",
+    "@types/node-fetch": "^2.5.3",
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "typescript": "^3.7.2"
   },
   "husky": {
     "hooks": {
@@ -29,7 +35,7 @@
     }
   },
   "lint-staged": {
-    "bin/**/*.js": [
+    "src/**/*.ts": [
       "npm run prettier",
       "git add"
     ]
