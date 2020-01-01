@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "bin/index.js",
   "scripts": {
-    "build": "tsc -p .",
+    "build": "rimraf bin/* && tsc -p .",
     "prettier": "prettier --write 'src/**/*.ts'"
   },
   "repository": "https://github.com/JB1905/meet-upper.git",
