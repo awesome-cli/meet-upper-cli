@@ -3,5 +3,4 @@ src
 tsconfig.json
 .prettierrc
 
-/index.d.ts
 yarn-error.log
