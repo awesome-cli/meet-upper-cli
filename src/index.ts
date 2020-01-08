@@ -14,41 +14,45 @@ program
   .command('UPCOMING <group>')
   .description('Show upcoming meetups')
   .action(async (group: string) => {
-    const res = await fetch(`https://api.meetup.com/${group}/events`);
+    try {
+      const res = await fetch(`https://api.meetup.com/${group}/events`);
 
-    const meetups = await res.json();
+      const meetups = await res.json();
 
-    if (meetups?.errors?.[0]?.code === 'group_error') {
-      console.log(meetups.errors[0].message);
+      if (meetups?.errors?.[0]?.code === 'group_error') {
+        console.log(meetups.errors[0].message);
 
-      process.exit(1);
+        process.exit(1);
+      }
+
+      if (!meetups.length) {
+        console.log('Not found upcoming events 😞');
+
+        process.exit(1);
+      }
+
+      meetups.map((meetup: { [key: string]: string }) => {
+        const { name, link, time } = meetup;
+
+        const date = new Date(time);
+
+        const convertTime = (time: number) => (time < 10 ? `0${time}` : time);
+
+        console.log(
+          `${chalk.bgBlue(name)}\n` +
+            `\t${chalk.magenta('URL:')} ${link}\n` +
+            `\t${chalk.magenta('When:')} ${convertTime(
+              date.getDate()
+            )}.${convertTime(
+              date.getMonth() + 1
+            )}.${date.getFullYear()}, ${convertTime(
+              date.getHours()
+            )}:${convertTime(date.getMinutes())}`
+        );
+      });
+    } catch (err) {
+      console.error(chalk.red(err.message));
     }
-
-    if (!meetups.length) {
-      console.log('Not found upcoming events 😞');
-
-      process.exit(1);
-    }
-
-    meetups.map((meetup: { [key: string]: string }) => {
-      const { name, link, time } = meetup;
-
-      const date = new Date(time);
-
-      const convertTime = (time: number) => (time < 10 ? `0${time}` : time);
-
-      console.log(
-        `${chalk.bgBlue(name)}\n` +
-          `\t${chalk.magenta('URL:')} ${link}\n` +
-          `\t${chalk.magenta('When:')} ${convertTime(
-            date.getDate()
-          )}.${convertTime(
-            date.getMonth()
-          )}.${date.getFullYear()}, ${convertTime(
-            date.getHours()
-          )}:${convertTime(date.getMinutes())}`
-      );
-    });
   });
 
 program.on('command:*', () => {

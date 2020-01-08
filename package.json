@@ -1,6 +1,6 @@
 {
   "name": "meet-upper-cli",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Search events on Meetup from CLI",
   "author": "Jakub Biesiada",
   "license": "MIT",
