@@ -12,12 +12,7 @@ program.version(pkg.version).description(chalk.blue('meetUPPER'));
 
 program
   .command('MEET <group>')
-  .description("Show upcoming meetups you're going to")
-  .option('-n --not-going', "Show upcoming meetups you're not going to")
-  .option(
-    '-w --went',
-    'Show meetups you went to in reverse chronological order'
-  )
+  .description('Show upcoming meetups')
   .action(async (group: string) => {
     const res = await fetch(`https://api.meetup.com/${group}/events`);
 
