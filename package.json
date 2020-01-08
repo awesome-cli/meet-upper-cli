@@ -1,6 +1,6 @@
 {
-  "name": "meet-upper",
-  "version": "1.1.0",
+  "name": "meet-upper-cli",
+  "version": "2.0.1",
   "description": "Search events on Meetup from CLI",
   "author": "Jakub Biesiada",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "build": "rimraf bin/* && tsc -p .",
     "prettier": "prettier --write 'src/**/*.ts'"
   },
-  "repository": "https://github.com/JB1905/meet-upper.git",
+  "repository": "https://github.com/JB1905/meet-upper-cli.git",
   "engines": {
     "node": ">=10"
   },

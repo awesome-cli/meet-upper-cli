@@ -11,7 +11,7 @@ const pkg = require(path.join(__dirname, '../package.json'));
 program.version(pkg.version).description(chalk.blue('meetUPPER'));
 
 program
-  .command('MEET <group>')
+  .command('UPCOMING <group>')
   .description('Show upcoming meetups')
   .action(async (group: string) => {
     const res = await fetch(`https://api.meetup.com/${group}/events`);
