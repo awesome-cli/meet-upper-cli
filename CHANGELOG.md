@@ -1,6 +1,6 @@
 # meetUPPER CLI Changelog
 
-## 2.1.0 (2020-01-20)
+## 2.1.0 / 2.1.1 (2020-01-19)
 #### New Feature
 - added aliases for `meet-upper-cli`: `meet-upper`, `meetUPPER`, `MEET` & `MU`
 

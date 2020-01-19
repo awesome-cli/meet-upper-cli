@@ -1,6 +1,6 @@
 {
   "name": "meet-upper-cli",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Search events on Meetup from CLI",
   "author": "Jakub Biesiada",
   "license": "MIT",
@@ -9,10 +9,24 @@
     "build": "rimraf bin/* && tsc -p .",
     "prettier": "prettier --write 'lib/**/*.ts'"
   },
-  "repository": "https://github.com/JB1905/meet-upper-cli.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JB1905/meet-upper-cli.git"
+  },
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "CLI",
+    "api",
+    "meetups",
+    "events",
+    "search"
+  ],
+  "bugs": {
+    "url": "https://github.com/JB1905/meet-upper-cli/issues"
+  },
+  "homepage": "https://github.com/JB1905/meet-upper-cli#readme",
   "bin": {
     "meet-upper-cli": "bin/index.js",
     "meet-upper": "bin/index.js",
