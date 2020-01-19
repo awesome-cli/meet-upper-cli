@@ -56,8 +56,7 @@
   },
   "lint-staged": {
     "lib/**/*.ts": [
-      "npm run prettier",
-      "git add"
+      "npm run prettier"
     ]
   }
 }
