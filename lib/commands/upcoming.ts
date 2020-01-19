@@ -23,12 +23,14 @@ program
         process.exit(1);
       }
 
-      meetups.map((meetup: { [key: string]: string }) => {
+      meetups.map((meetup: { [key: string]: string }, index: number) => {
         const { name, link, time } = meetup;
 
         const date = new Date(time);
 
         const convertTime = (time: number) => (time < 10 ? `0${time}` : time);
+
+        if (index !== 0) console.log('');
 
         console.log(
           `${chalk.bgBlue(name)}\n` +
