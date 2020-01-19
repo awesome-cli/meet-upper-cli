@@ -1,18 +1,10 @@
-#!/usr/bin/env node
-
-import path from 'path';
 import program from 'commander';
-import chalk from 'chalk';
-import figlet from 'figlet';
 import fetch from 'node-fetch';
-
-const pkg = require(path.join(__dirname, '../package.json'));
-
-program.version(pkg.version).description(chalk.blue('meetUPPER'));
+import chalk from 'chalk';
 
 program
-  .command('UPCOMING <group>')
-  .description('Show upcoming meetups')
+  .command('UPCOMING <group> [options]')
+  .description('display upcoming events for group')
   .action(async (group: string) => {
     try {
       const res = await fetch(`https://api.meetup.com/${group}/events`);
@@ -54,17 +46,3 @@ program
       console.error(chalk.red(err.message));
     }
   });
-
-program.on('command:*', () => {
-  console.error(chalk.red('Invalid command'));
-
-  process.exit(1);
-});
-
-program.on('--help', () => {
-  console.log(
-    chalk.red(figlet.textSync('meetUPPER', { horizontalLayout: 'full' }))
-  );
-});
-
-program.parse(process.argv);
