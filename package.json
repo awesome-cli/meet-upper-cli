@@ -17,7 +17,8 @@
     "meet-upper-cli": "bin/index.js",
     "meet-upper": "bin/index.js",
     "meetUPPER": "bin/index.js",
-    "MEET": "bin/index.js"
+    "MEET": "bin/index.js",
+    "MU": "bin/index.js"
   },
   "dependencies": {
     "chalk": "^3.0.0",

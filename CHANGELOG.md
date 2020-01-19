@@ -1,5 +1,15 @@
 # meetUPPER CLI Changelog
 
+## 2.1.0 (2020-01-20)
+#### New Feature
+- added aliases for `meet-upper-cli`: `meet-upper`, `meetUPPER`, `MEET` & `MU`
+
+#### Improvement
+- improved help output
+
+#### Repository Changes
+- renamed `src` to `lib`
+
 ## 2.0.2 (2020-01-08)
 #### Bug Fix
 - fixed month in event date

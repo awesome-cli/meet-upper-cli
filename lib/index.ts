@@ -11,7 +11,7 @@ const pkg = require(path.join(__dirname, '../package.json'));
 
 program
   .version(pkg.version)
-  .description('Unofficial Meetup CLI')
+  .description('Node.js CLI for Meetup')
   .usage('<cmd> [options]');
 
 program.on('command:*', (commands?: string[]) => {

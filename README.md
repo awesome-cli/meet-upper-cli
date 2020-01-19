@@ -18,5 +18,7 @@ $ npm install -g meet-upper-cli
 $ meet-upper-cli UPCOMING <group>
 ```
 
+**Instead of `meet-upper-cli` you can use aliases: `meet-upper`, `meetUPPER`, `MEET` & `MU`**
+
 ## License
 This project is licensed under the MIT License © 2019-present Jakub Biesiada
