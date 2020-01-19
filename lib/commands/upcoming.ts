@@ -3,8 +3,8 @@ import fetch from 'node-fetch';
 import chalk from 'chalk';
 
 program
-  .command('UPCOMING <group> [options]')
-  .description('display upcoming events for group')
+  .command('UPCOMING <group>')
+  .description('display upcoming events for a group')
   .action(async (group: string) => {
     try {
       const res = await fetch(`https://api.meetup.com/${group}/events`);
