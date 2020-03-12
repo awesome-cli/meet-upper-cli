@@ -18,13 +18,15 @@ program
       const meetups = await res.json();
 
       if (meetups?.errors?.[0]?.code === 'group_error') {
-        spinner.fail(meetups.errors[0].message);
+        spinner.warn(meetups.errors[0].message);
 
         process.exit(1);
       }
 
       if (!meetups.length) {
-        spinner.fail('Not found upcoming events 😞');
+        spinner.stop();
+
+        console.log('Not found upcoming events 😞');
 
         process.exit(1);
       }
@@ -53,7 +55,7 @@ program
         );
       });
     } catch (err) {
-      spinner.fail(chalk.red(err.message));
+      spinner.fail(chalk.red('Unable to check upcoming events'));
 
       process.exit(1);
     }
