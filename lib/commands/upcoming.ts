@@ -2,14 +2,22 @@ import program from 'commander';
 import fetch from 'node-fetch';
 import chalk from 'chalk';
 
+import { spinner } from '../functions/spinner';
+
 program
   .command('UPCOMING <group>')
   .description('display upcoming events for a group')
   .action(async (group: string) => {
     try {
+      spinner.text = 'Looking for upcoming events';
+      spinner.color = 'red';
+      spinner.start();
+
       const res = await fetch(`https://api.meetup.com/${group}/events`);
 
       const meetups = await res.json();
+
+      spinner.stop();
 
       if (meetups?.errors?.[0]?.code === 'group_error') {
         console.log(meetups.errors[0].message);
