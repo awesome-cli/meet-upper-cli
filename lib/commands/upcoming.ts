@@ -1,6 +1,7 @@
 import program from 'commander';
 import fetch from 'node-fetch';
 import chalk from 'chalk';
+import twoDigit from 'two-digit';
 
 import { spinner } from '../functions/spinner';
 
@@ -38,20 +39,16 @@ program
 
         const date = new Date(time);
 
-        const convertTime = (time: number) => (time < 10 ? `0${time}` : time);
-
         if (index !== 0) console.log('');
 
         console.log(
           `${chalk.bgBlue(name)}\n` +
             `\t${chalk.magenta('URL:')} ${link}\n` +
-            `\t${chalk.magenta('When:')} ${convertTime(
-              date.getDate()
-            )}.${convertTime(
+            `\t${chalk.magenta('When:')} ${twoDigit(date.getDate())}.${twoDigit(
               date.getMonth() + 1
-            )}.${date.getFullYear()}, ${convertTime(
-              date.getHours()
-            )}:${convertTime(date.getMinutes())}`
+            )}.${date.getFullYear()}, ${twoDigit(date.getHours())}:${twoDigit(
+              date.getMinutes()
+            )}`
         );
       });
     } catch {
