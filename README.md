@@ -4,7 +4,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/meet-upper-cli.svg?style=flat-square)](https://www.npmjs.com/package/meet-upper-cli)
 
 ## About
-Node.js CLI for Meetup.
+Node.js CLI for Meetup
 
 ## How to Install
 First, install the CLI by npm:
