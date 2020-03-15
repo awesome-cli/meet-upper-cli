@@ -1,7 +1,7 @@
 import program from 'commander';
 import fetch from 'node-fetch';
 import chalk from 'chalk';
-import twoDigit from 'two-digit';
+import dd from 'double-digit';
 
 import { spinner } from '../functions/spinner';
 
@@ -44,9 +44,9 @@ program
         console.log(
           `${chalk.bgBlue(name)}\n` +
             `\t${chalk.magenta('URL:')} ${link}\n` +
-            `\t${chalk.magenta('When:')} ${twoDigit(date.getDate())}.${twoDigit(
+            `\t${chalk.magenta('When:')} ${dd(date.getDate())}.${dd(
               date.getMonth() + 1
-            )}.${date.getFullYear()}, ${twoDigit(date.getHours())}:${twoDigit(
+            )}.${date.getFullYear()}, ${dd(date.getHours())}:${dd(
               date.getMinutes()
             )}`
         );
