@@ -1,7 +1,7 @@
 {
   "name": "meet-upper-cli",
   "version": "2.2.1",
-  "description": "Search events on Meetup from CLI",
+  "description": "Node.js CLI for Meetup",
   "author": "Jakub Biesiada",
   "license": "MIT",
   "main": "bin/index.js",
