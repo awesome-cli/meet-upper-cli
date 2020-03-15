@@ -54,7 +54,7 @@ program
             )}:${convertTime(date.getMinutes())}`
         );
       });
-    } catch (err) {
+    } catch {
       spinner.fail(chalk.red('Unable to check upcoming events'));
 
       process.exit(1);
