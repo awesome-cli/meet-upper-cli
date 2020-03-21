@@ -1,5 +1,9 @@
 # meetUPPER CLI Changelog
 
+## 2.2.3 (2020-03-21)
+#### Repository Changes
+- replaced `double-digit` with `two-digit`
+
 ## 2.2.1 / 2.2.2 (2020-03-14)
 #### Repository Changes
 - updated `commander`
