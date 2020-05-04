@@ -5,6 +5,9 @@ import td from 'two-digit';
 
 import { spinner } from '../functions/spinner';
 
+import { Meetup } from '../interfaces/meetup';
+import { ApiError } from '../interfaces/api-error';
+
 program
   .command('UPCOMING <group>')
   .description('display upcoming events for a group')
@@ -16,7 +19,7 @@ program
     try {
       const res = await fetch(`https://api.meetup.com/${group}/events`);
 
-      const meetups = await res.json();
+      const meetups: Meetup[] & ApiError = await res.json();
 
       if (meetups?.errors?.[0]?.code === 'group_error') {
         spinner.warn(meetups.errors[0].message);
@@ -34,7 +37,7 @@ program
 
       spinner.succeed(`Found ${meetups.length} events\n`);
 
-      meetups.map((meetup: { [key: string]: string }, index: number) => {
+      meetups.map((meetup, index) => {
         const { name, link, time } = meetup;
 
         const date = new Date(time);
