@@ -5,8 +5,8 @@ import td from 'two-digit';
 
 import { spinner } from '../functions/spinner';
 
-import { Meetup } from '../interfaces/meetup';
-import { ApiError } from '../interfaces/api-error';
+import { Meetup } from '../interfaces/Meetup';
+import { ApiError } from '../interfaces/ApiError';
 
 program
   .command('UPCOMING <group>')
