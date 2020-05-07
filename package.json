@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@types/figlet": "^1.2.0",
-    "@types/node": "^13.13.4",
+    "@types/node": "^13.13.5",
     "@types/node-fetch": "^2.5.7",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",

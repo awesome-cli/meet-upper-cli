@@ -5,6 +5,8 @@ import td from 'two-digit';
 
 import { spinner } from '../functions/spinner';
 
+import { API_ENDPOINT } from '../constants';
+
 import { Meetup } from '../interfaces/Meetup';
 import { ApiError } from '../interfaces/ApiError';
 
@@ -17,43 +19,43 @@ program
     spinner.start();
 
     try {
-      const res = await fetch(`https://api.meetup.com/${group}/events`);
+      const res = await fetch(`${API_ENDPOINT}/${group}/events`);
 
-      const meetups: Meetup[] & ApiError = await res.json();
+      const meetups: Meetup[] | ApiError = await res.json();
 
-      if (meetups?.errors?.[0]?.code === 'group_error') {
+      if ('errors' in meetups && meetups.errors[0].code === 'group_error') {
         spinner.warn(meetups.errors[0].message);
 
         process.exit(1);
+      } else if (Array.isArray(meetups)) {
+        if (!meetups.length) {
+          spinner.stop();
+
+          console.log('Not found upcoming events 😞');
+
+          process.exit(1);
+        }
+
+        spinner.succeed(`Found ${meetups.length} events\n`);
+
+        meetups.map((meetup, index) => {
+          const { name, link, time } = meetup;
+
+          const date = new Date(time);
+
+          if (index !== 0) console.log('');
+
+          console.log(
+            `${chalk.bgBlue(name)}\n` +
+              `\t${chalk.magenta('URL:')} ${link}\n` +
+              `\t${chalk.magenta('When:')} ${td(date.getDate())}.${td(
+                date.getMonth() + 1
+              )}.${date.getFullYear()}, ${td(date.getHours())}:${td(
+                date.getMinutes()
+              )}`
+          );
+        });
       }
-
-      if (!meetups.length) {
-        spinner.stop();
-
-        console.log('Not found upcoming events 😞');
-
-        process.exit(1);
-      }
-
-      spinner.succeed(`Found ${meetups.length} events\n`);
-
-      meetups.map((meetup, index) => {
-        const { name, link, time } = meetup;
-
-        const date = new Date(time);
-
-        if (index !== 0) console.log('');
-
-        console.log(
-          `${chalk.bgBlue(name)}\n` +
-            `\t${chalk.magenta('URL:')} ${link}\n` +
-            `\t${chalk.magenta('When:')} ${td(date.getDate())}.${td(
-              date.getMonth() + 1
-            )}.${date.getFullYear()}, ${td(date.getHours())}:${td(
-              date.getMinutes()
-            )}`
-        );
-      });
     } catch {
       spinner.fail(chalk.red('Unable to check upcoming events'));
 
