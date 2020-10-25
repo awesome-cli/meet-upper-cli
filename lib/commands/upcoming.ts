@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 import chalk from 'chalk';
 import td from 'two-digit';
 
-import { spinner } from '../functions/spinner';
+import { spinner } from '../config/spinner';
 
 import { API_ENDPOINT } from '../constants';
 

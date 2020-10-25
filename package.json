@@ -35,23 +35,23 @@
     "MU": "bin/index.js"
   },
   "dependencies": {
-    "chalk": "^4.0.0",
-    "commander": "^5.1.0",
+    "chalk": "^4.1.0",
+    "commander": "^6.2.0",
     "configstore": "^5.0.1",
-    "figlet": "^1.4.0",
-    "inquirer": "^7.1.0",
-    "node-fetch": "^2.6.0",
-    "ora": "^4.0.4",
+    "figlet": "^1.5.0",
+    "inquirer": "^7.3.3",
+    "node-fetch": "^2.6.1",
+    "ora": "^5.1.0",
     "two-digit": "^1.0.6"
   },
   "devDependencies": {
     "@types/figlet": "^1.2.0",
-    "@types/node": "^13.13.5",
+    "@types/node": "^14.14.2",
     "@types/node-fetch": "^2.5.7",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.2",
-    "prettier": "^2.0.5",
-    "typescript": "^3.8.3"
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3"
   },
   "husky": {
     "hooks": {
