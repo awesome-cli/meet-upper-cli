@@ -5,7 +5,7 @@ import td from 'two-digit';
 
 import { spinner } from '../config/spinner';
 
-import { API_ENDPOINT } from '../constants';
+import { API_ENDPOINT } from '../constants/api';
 
 import { Meetup } from '../interfaces/Meetup';
 import { ApiError } from '../interfaces/ApiError';
