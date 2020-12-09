@@ -1,8 +1,8 @@
 export interface ApiError {
-  errors: Error[];
+  readonly errors: Error[];
 }
 
 interface Error {
-  code: string;
-  message: string;
+  readonly code: string;
+  readonly message: string;
 }

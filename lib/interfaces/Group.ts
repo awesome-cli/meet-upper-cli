@@ -1,15 +1,15 @@
 export interface Group {
-  created: number;
-  name: string;
-  id: number;
-  join_mode: string;
-  lat: number;
-  lon: number;
-  urlname: string;
-  who: string;
-  localized_location: string;
-  state: string;
-  country: string;
-  region: string;
-  timezone: string;
+  readonly created: number;
+  readonly name: string;
+  readonly id: number;
+  readonly join_mode: string;
+  readonly lat: number;
+  readonly lon: number;
+  readonly urlname: string;
+  readonly who: string;
+  readonly localized_location: string;
+  readonly state: string;
+  readonly country: string;
+  readonly region: string;
+  readonly timezone: string;
 }

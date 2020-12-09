@@ -1,7 +1,7 @@
 export interface Venue {
-  id: number;
-  name: string;
-  repinned: boolean;
-  country: string;
-  localized_country_name: string;
+  readonly id: number;
+  readonly name: string;
+  readonly repinned: boolean;
+  readonly country: string;
+  readonly localized_country_name: string;
 }
